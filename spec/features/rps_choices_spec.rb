@@ -1,3 +1,5 @@
+require 'ai'
+
 feature "can choose between rock, paper and scissors" do
   scenario "have the options" do
     sign_in_and_play
@@ -9,21 +11,31 @@ feature "can choose between rock, paper and scissors" do
   scenario "be able to choose rock and have confirmation" do
     sign_in_and_play
     click_button 'rock'
-    expect(page).to have_content "you chose rock."
+    expect(page).to have_content "you chose: rock"
   end
 
   scenario "be able to choose scissors and have confirmation" do
     sign_in_and_play
     click_button 'scissors'
-    expect(page).to have_content "you chose scissors."
+    expect(page).to have_content "you chose: scissors"
   end
 
   scenario "be able to choose paper and have confirmation" do
     sign_in_and_play
     click_button 'paper'
-    expect(page).to have_content "you chose paper."
+    expect(page).to have_content "you chose: paper"
   end
 
 
 
+end
+
+
+feature "computer chooses either rock, paper or scissors" do
+  scenario "computer chooses rock" do
+  sign_in_and_play
+  click_button 'paper'
+  allow(subject).to receive(:choose).and_return(:rock)
+  expect(page).to have_content 'ai chose: rock'
+  end
 end
