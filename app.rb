@@ -14,10 +14,19 @@ class RockPaperScissors < Sinatra::Base
     
   end
 
+  post'/option'do
+    session[:option] = params[:option]
+    redirect '/play'
+  end
+
   get'/play' do
     @name = session[:name]
+    @option = session[:option]
+    
     erb:play
   end
+
+  
 
   
 

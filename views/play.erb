@@ -1,3 +1,14 @@
 <h1> choose your weapon,  <%=@name%>. </h1>
 
+<form action="/option" method="post">
+  <input type="submit" name='option' value="rock"/>
+
+
+
+  <input type="submit" name='option' value="paper"/>
+
+  <input type="submit" name='option' value="scissors"/>
+</form>
+
+you chose <%=@option%>.
 
