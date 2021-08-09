@@ -30,12 +30,3 @@ feature "can choose between rock, paper and scissors" do
 
 end
 
-
-feature "computer chooses either rock, paper or scissors" do
-  scenario "computer chooses rock" do
-  sign_in_and_play
-  click_button 'paper'
-  allow(subject).to receive(:choose).and_return(:rock)
-  expect(page).to have_content 'ai chose: rock'
-  end
-end

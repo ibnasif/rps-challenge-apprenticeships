@@ -1,13 +1,15 @@
 class Ai
 
-  attr_accessor :choices
+  attr_accessor :choices, :choice
 
   def initialize
     @choices = [:rock, :paper, :scissors]
+    
   end
 
   def choose
-    @choices.sample
+    @choice = @choices.sample
+     
   end
 
 
